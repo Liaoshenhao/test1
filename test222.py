@@ -8,7 +8,8 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 def register():
     data = {
 		"a":1213,
-		"b":3346
+		"b":3346,
+		"c":4566
     }
     return jsonify(data)
   
