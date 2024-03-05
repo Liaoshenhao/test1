@@ -125,52 +125,6 @@
 </body>
 <script src="js/mui.js"></script>
 <script>
-	//ajax封装
-	// const ajax = (url, type, data, datatype, success, error) =>{
-	// 	// 获取对象属性名
-	// 	let dataname = Object.getOwnPropertyNames(data);
-	// 	let ndata = '';
-	// 	if(datatype == "default"){
-	// 		for(let i  = 0; i < dataname.length; i++){
-				
-	// 			if(i != 0)
-	// 				ndata = ndata + '&';
-	// 			if(typeof(data[dataname[i]]) == 'object'){
-					
-	// 				for(let j = 0; j < data[dataname[i]].length; j++){
-	// 					if(j != 0)
-	// 						ndata = ndata + '&';
-	// 					ndata = ndata + dataname[i] + "[]=" + data[dataname[i]][j];
-	// 				}
-	// 			}else
-	// 				ndata = ndata + dataname[i] + "=" + data[dataname[i]];
-	// 		}
-	// 	}
-	// 	data = ndata;
-	// 	// alert(data);
-	// 	// 创建 XMLHttpRequest 对象
-	// 	// 因为要跨域，所以用plus.net.XMLHttpRequest
-	// 	let xmlhttp = new plus.net.XMLHttpRequest();
-	// 	// 当 readyState 改变时，就会触发 onreadystatechange 事件
-	// 	xmlhttp.onreadystatechange=function(){
-	// 		// 4:请求完成并响应就绪
-	// 		if (xmlhttp.readyState == 4 ){
-	// 			// success 正常返回200，用XMLHttpRequest没有解决跨域的话返回0
-	// 			if ((xmlhttp.status == 200 && xmlhttp.status < 300) || xmlhttp.status == 304){
-	// 				success.apply(this, [xmlhttp.responseText]);
-	// 			// false
-	// 			}else{
-	// 				error.apply(this);
-	// 			}
-	// 		} 
-	// 	}
-	// 	// 规定请求的类型、URL 以及是否异步处理请求。""
-	// 	xmlhttp.open(type, url, false);
-	// 	// 添加 HTTP 头
-	// 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	// 	// 将请求发送到服务器。
-	// 	xmlhttp.send(data);
-	// }
 	mui.init();
 	/* 登录和注册页面切换 */
 	document.getElementById('Password').addEventListener('click', function () {
@@ -196,7 +150,7 @@
 			document.getElementById('username').placeholder = 'Username';
 			document.getElementById('password').placeholder = 'Password';
 			document.getElementById('password').type = 'password';
-		}fwfefwfewfr41242353342
+		}
 	
 	});
 	
@@ -210,7 +164,6 @@
 			// 模拟的账号密码验证逻辑
 			var validUsername = 'admin'; // 预设的正确用户名
 			var validPassword = 'password'; // 预设的正确密码
-			alert("1");
 			
 			mui.ajax(url, {
 				data: {
@@ -231,22 +184,6 @@
 				}
 			});
 			
-			// ajax(
-			// 	url,
-			// 	'POST',
-			// 	{
-			// 		'username':'wmxkb',
-			// 		'password':'wmxkb'
-			// 	 }, 
-			// 	'default',
-			// 	function success(data){
-			// 		alert(data);
-			// 	},
-			// 	function error(){
-					
-			// 	}
-			// );
-			alert("3");
 			/*
 			if (username === validUsername && password === validPassword) {
 				// 验证成功，跳转到主页面
