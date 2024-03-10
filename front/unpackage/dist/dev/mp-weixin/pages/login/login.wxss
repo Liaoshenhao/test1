@@ -1,0 +1,14 @@
+
+.login-container.data-v-b237504c {  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: center;  
+  height: 100vh;  
+  padding: 20px;
+}
+.error-message.data-v-b237504c {  
+  color: red;  
+  margin-top: 10px;
+}  
+
