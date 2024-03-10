@@ -1,5 +1,26 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/login/login"],{
 
+/***/ 37:
+/*!***********************************************************************************************************!*\
+  !*** C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(wx, createPage) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+__webpack_require__(/*! uni-pages */ 26);
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 25));
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ 44));
+// @ts-ignore
+wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
+createPage(_login.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["createPage"]))
+
+/***/ }),
+
 /***/ 44:
 /*!****************************************************************************************!*\
   !*** C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue ***!
@@ -116,14 +137,29 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 49));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 51));
-var _vue = __webpack_require__(/*! vue */ 25);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -145,78 +181,26 @@ var _vue = __webpack_require__(/*! vue */ 25);
 var _default = {
   data: function data() {
     return {
-      // 确保在这里定义了 username 属性  
       username: '',
       password: '',
       errorMessage: ''
-      // 其他数据属性...  
     };
   },
-  setup: function setup() {
-    var username = (0, _vue.ref)('');
-    var password = (0, _vue.ref)('');
-    var errorMessage = (0, _vue.ref)('');
-    var submitForm = /*#__PURE__*/function () {
-      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var isValidUser;
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return validateUser(username.value, password.value);
-              case 2:
-                isValidUser = _context.sent;
-                if (isValidUser) {
-                  // 登录成功，你可以跳转到其他页面或进行其他操作  
-                  alert('登录成功！');
-                  // 清除输入字段和错误信息  
-                  username.value = '';
-                  password.value = '';
-                  errorMessage.value = '';
-                } else {
-                  // 登录失败，显示错误信息  
-                  errorMessage.value = '用户名或密码错误';
-                }
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-      return function submitForm() {
-        return _ref.apply(this, arguments);
-      };
-    }();
-
-    // 假设的验证用户函数  
-    var validateUser = /*#__PURE__*/function () {
-      var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(usernameInput, passwordInput) {
-        return _regenerator.default.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                return _context2.abrupt("return", usernameInput === 'admin' && passwordInput === 'password');
-              case 1:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-      return function validateUser(_x, _x2) {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-
-    // 返回响应式的数据和方法  
-    return {
-      username: username,
-      password: password,
-      errorMessage: errorMessage,
-      submitForm: submitForm
-    };
+  methods: {
+    login: function login() {
+      // 这里应该是发送登录请求到服务器的代码  
+      // 示例中仅做模拟处理    
+      if (this.username === 'admin' && this.password === 'password') {
+        // 登录成功处理，例如跳转到其他页面  
+        // this.$router.push('/dashboard'); // 假设你使用了 Vue Router 
+        alert("登录成功");
+        console.log('登录成功！');
+        this.errorMessage = ''; // 清空错误信息  
+      } else {
+        // 登录失败处理  
+        this.errorMessage = 'Invalid username or password';
+      }
+    }
   }
 };
 exports.default = _default;
@@ -252,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-}]);
+},[[37,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/login/login.js.map
 ;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
     'pages/login/login-create-component',

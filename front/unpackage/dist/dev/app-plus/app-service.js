@@ -145,6 +145,9 @@ if (typeof uni !== 'undefined' && uni && uni.requireGlobal) {
 if (uni.restoreGlobal) {
   uni.restoreGlobal(weex, plus, setTimeout, clearTimeout, setInterval, clearInterval);
 }
+__definePage('pages/login/login', function () {
+  return Vue.extend(__webpack_require__(/*! pages/login/login.vue?mpType=page */ 24).default);
+});
 __definePage('pages/index/index', function () {
   return Vue.extend(__webpack_require__(/*! pages/index/index.vue?mpType=page */ 7).default);
 });
@@ -517,80 +520,100 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: _vm._$s(0, "sc", "login-container"), attrs: { _i: 0 } },
+    {
+      staticClass: _vm._$s(0, "sc", "container"),
+      attrs: { id: "login-container", _i: 0 },
+    },
     [
-      _c("h2"),
       _c(
-        "form",
-        {
-          attrs: { _i: 2 },
-          on: {
-            submit: function ($event) {
-              $event.preventDefault()
-              return _vm.submitForm($event)
-            },
-          },
-        },
+        "div",
+        { staticClass: _vm._$s(1, "sc", "login-form"), attrs: { _i: 1 } },
         [
-          _c("div", [
-            _c("label", {}),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.username,
-                  expression: "username",
-                },
-              ],
-              attrs: { id: "username", _i: 5 },
-              domProps: { value: _vm._$s(5, "v-model", _vm.username) },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.username = $event.target.value
-                },
-              },
+          _c("h2", {
+            staticClass: _vm._$s(2, "sc", "login-title"),
+            attrs: { _i: 2 },
+          }),
+          _c("form", [
+            _c(
+              "div",
+              { staticClass: _vm._$s(4, "sc", "form-group"), attrs: { _i: 4 } },
+              [
+                _c("label", {
+                  staticClass: _vm._$s(5, "sc", "sr-only"),
+                  attrs: { _i: 5 },
+                }),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username",
+                    },
+                  ],
+                  staticClass: _vm._$s(6, "sc", "form-control"),
+                  attrs: { id: "username", _i: 6 },
+                  domProps: { value: _vm._$s(6, "v-model", _vm.username) },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    },
+                  },
+                }),
+              ]
+            ),
+            _c(
+              "div",
+              { staticClass: _vm._$s(7, "sc", "form-group"), attrs: { _i: 7 } },
+              [
+                _c("label", {
+                  staticClass: _vm._$s(8, "sc", "sr-only"),
+                  attrs: { _i: 8 },
+                }),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password",
+                    },
+                  ],
+                  staticClass: _vm._$s(9, "sc", "form-control"),
+                  attrs: { id: "password", _i: 9 },
+                  domProps: { value: _vm._$s(9, "v-model", _vm.password) },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    },
+                  },
+                }),
+              ]
+            ),
+            _c("button", {
+              staticClass: _vm._$s(10, "sc", "btn btn-primary btn-block"),
+              attrs: { _i: 10 },
+              on: { click: _vm.login },
             }),
           ]),
-          _c("div", [
-            _c("label", {}),
-            _c("input", {
-              directives: [
+          _vm._$s(11, "i", _vm.errorMessage)
+            ? _c(
+                "p",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password",
+                  staticClass: _vm._$s(11, "sc", "error-message"),
+                  attrs: { _i: 11 },
                 },
-              ],
-              attrs: { id: "password", _i: 8 },
-              domProps: { value: _vm._$s(8, "v-model", _vm.password) },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.password = $event.target.value
-                },
-              },
-            }),
-          ]),
-          _c("button", {}),
+                [_vm._v(_vm._$s(11, "t0-0", _vm._s(_vm.errorMessage)))]
+              )
+            : _vm._e(),
         ]
       ),
-      _vm._$s(10, "i", _vm.errorMessage)
-        ? _c(
-            "p",
-            {
-              staticClass: _vm._$s(10, "sc", "error-message"),
-              attrs: { _i: 10 },
-            },
-            [_vm._v(_vm._$s(10, "t0-0", _vm._s(_vm.errorMessage)))]
-          )
-        : _vm._e(),
     ]
   )
 }
@@ -620,393 +643,133 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBu
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 1);\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\nvar _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 23));\nvar _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 25));\nvar _vue = __webpack_require__(/*! vue */ 26);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = {\n  data: function data() {\n    return {\n      // 确保在这里定义了 username 属性  \n      username: '',\n      password: '',\n      errorMessage: ''\n      // 其他数据属性...  \n    };\n  },\n  setup: function setup() {\n    var username = (0, _vue.ref)('');\n    var password = (0, _vue.ref)('');\n    var errorMessage = (0, _vue.ref)('');\n    var submitForm = /*#__PURE__*/function () {\n      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {\n        var isValidUser;\n        return _regenerator.default.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                _context.next = 2;\n                return validateUser(username.value, password.value);\n              case 2:\n                isValidUser = _context.sent;\n                if (isValidUser) {\n                  // 登录成功，你可以跳转到其他页面或进行其他操作  \n                  alert('登录成功！');\n                  // 清除输入字段和错误信息  \n                  username.value = '';\n                  password.value = '';\n                  errorMessage.value = '';\n                } else {\n                  // 登录失败，显示错误信息  \n                  errorMessage.value = '用户名或密码错误';\n                }\n              case 4:\n              case \"end\":\n                return _context.stop();\n            }\n          }\n        }, _callee);\n      }));\n      return function submitForm() {\n        return _ref.apply(this, arguments);\n      };\n    }();\n\n    // 假设的验证用户函数  \n    var validateUser = /*#__PURE__*/function () {\n      var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(usernameInput, passwordInput) {\n        return _regenerator.default.wrap(function _callee2$(_context2) {\n          while (1) {\n            switch (_context2.prev = _context2.next) {\n              case 0:\n                return _context2.abrupt(\"return\", usernameInput === 'admin' && passwordInput === 'password');\n              case 1:\n              case \"end\":\n                return _context2.stop();\n            }\n          }\n        }, _callee2);\n      }));\n      return function validateUser(_x, _x2) {\n        return _ref2.apply(this, arguments);\n      };\n    }();\n\n    // 返回响应式的数据和方法  \n    return {\n      username: username,\n      password: password,\n      errorMessage: errorMessage,\n      submitForm: submitForm\n    };\n  }\n};\nexports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbG9naW4vbG9naW4udnVlIl0sIm5hbWVzIjpbImRhdGEiLCJ1c2VybmFtZSIsInBhc3N3b3JkIiwiZXJyb3JNZXNzYWdlIiwic2V0dXAiLCJ2YWxpZGF0ZVVzZXIiLCJpc1ZhbGlkVXNlciIsImFsZXJ0Iiwic3VibWl0Rm9ybSIsInVzZXJuYW1lSW5wdXQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQW1CQTs7Ozs7Ozs7Ozs7Ozs7Ozs7OztlQUVBO0VBQ0FBO0lBQ0E7TUFDQTtNQUNBQztNQUNBQztNQUNBQztNQUNBO0lBQ0E7RUFDQTtFQUNBQztJQUNBO0lBQ0E7SUFDQTtJQUNBO01BQUE7UUFBQTtRQUFBO1VBQUE7WUFBQTtjQUFBO2dCQUFBO2dCQUFBLE9BR0FDO2NBQUE7Z0JBQUFDO2dCQUNBO2tCQUNBO2tCQUNBQztrQkFDQTtrQkFDQU47a0JBQ0FDO2tCQUNBQztnQkFDQTtrQkFDQTtrQkFDQUE7Z0JBQ0E7Y0FBQTtjQUFBO2dCQUFBO1lBQUE7VUFBQTtRQUFBO01BQUEsQ0FDQTtNQUFBLGdCQWZBSztRQUFBO01BQUE7SUFBQSxHQWVBOztJQUVBO0lBQ0E7TUFBQTtRQUFBO1VBQUE7WUFBQTtjQUFBO2dCQUFBLGtDQUdBQztjQUFBO2NBQUE7Z0JBQUE7WUFBQTtVQUFBO1FBQUE7TUFBQSxDQUNBO01BQUEsZ0JBSkFKO1FBQUE7TUFBQTtJQUFBLEdBSUE7O0lBRUE7SUFDQTtNQUNBSjtNQUNBQztNQUNBQztNQUNBSztJQUNBO0VBQ0E7QUFDQTtBQUFBIiwiZmlsZSI6IjIyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiPHRlbXBsYXRlPiAgXG4gIDxkaXYgY2xhc3M9XCJsb2dpbi1jb250YWluZXJcIj4gIFxuICAgIDxoMj7nmbvlvZU8L2gyPiAgXG4gICAgPGZvcm0gQHN1Ym1pdC5wcmV2ZW50PVwic3VibWl0Rm9ybVwiPiAgXG4gICAgICA8ZGl2PiAgXG4gICAgICAgIDxsYWJlbCBmb3I9XCJ1c2VybmFtZVwiPueUqOaIt+WQjTo8L2xhYmVsPiAgXG4gICAgICAgIDxpbnB1dCB0eXBlPVwidGV4dFwiIGlkPVwidXNlcm5hbWVcIiB2LW1vZGVsPVwidXNlcm5hbWVcIiByZXF1aXJlZD4gIFxuICAgICAgPC9kaXY+ICBcbiAgICAgIDxkaXY+ICBcbiAgICAgICAgPGxhYmVsIGZvcj1cInBhc3N3b3JkXCI+5a+G56CBOjwvbGFiZWw+ICBcbiAgICAgICAgPGlucHV0IHR5cGU9XCJwYXNzd29yZFwiIGlkPVwicGFzc3dvcmRcIiB2LW1vZGVsPVwicGFzc3dvcmRcIiByZXF1aXJlZD4gIFxuICAgICAgPC9kaXY+ICBcbiAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiPueZu+W9lTwvYnV0dG9uPiAgXG4gICAgPC9mb3JtPiAgXG4gICAgPHAgdi1pZj1cImVycm9yTWVzc2FnZVwiIGNsYXNzPVwiZXJyb3ItbWVzc2FnZVwiPnt7IGVycm9yTWVzc2FnZSB9fTwvcD4gIFxuICA8L2Rpdj4gIFxuPC90ZW1wbGF0ZT4gIFxuICBcbjxzY3JpcHQ+ICBcbmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSc7ICBcbiAgXG5leHBvcnQgZGVmYXVsdCB7ICBcclxuXHRkYXRhKCkgeyAgXHJcblx0XHRyZXR1cm4geyAgXHJcblx0XHQgIC8vIOehruS/neWcqOi/memHjOWumuS5ieS6hiB1c2VybmFtZSDlsZ7mgKcgIFxyXG5cdFx0ICB1c2VybmFtZTogJycsICBcclxuXHRcdCAgcGFzc3dvcmQ6ICcnLFxyXG5cdFx0ICBlcnJvck1lc3NhZ2U6ICcnXHJcblx0XHQgIC8vIOWFtuS7luaVsOaNruWxnuaApy4uLiAgXHJcblx0XHR9OyAgXHJcblx0fSwgIFxuICBzZXR1cCgpIHsgIFxuICAgIGNvbnN0IHVzZXJuYW1lID0gcmVmKCcnKTsgIFxuICAgIGNvbnN0IHBhc3N3b3JkID0gcmVmKCcnKTsgIFxuICAgIGNvbnN0IGVycm9yTWVzc2FnZSA9IHJlZignJyk7ICBcbiAgICBjb25zdCBzdWJtaXRGb3JtID0gYXN5bmMgKCkgPT4geyAgXG4gICAgICAvLyDlgYforr7ov5nmmK/lkJHlkI7nq6/lj5HpgIHor7fmsYLnmoTlh73mlbAgIFxuICAgICAgLy8g5Zyo5a6e6ZmF5byA5Y+R5Lit77yM5L2g5bqU6K+l5L2/55SoIGF4aW9zIOaIliBmZXRjaCDnrYnlupPmnaXlj5HpgIHor7fmsYIgIFxuICAgICAgY29uc3QgaXNWYWxpZFVzZXIgPSBhd2FpdCB2YWxpZGF0ZVVzZXIodXNlcm5hbWUudmFsdWUsIHBhc3N3b3JkLnZhbHVlKTsgIFxuICAgICAgaWYgKGlzVmFsaWRVc2VyKSB7ICBcbiAgICAgICAgLy8g55m75b2V5oiQ5Yqf77yM5L2g5Y+v5Lul6Lez6L2s5Yiw5YW25LuW6aG16Z2i5oiW6L+b6KGM5YW25LuW5pON5L2cICBcbiAgICAgICAgYWxlcnQoJ+eZu+W9leaIkOWKn++8gScpOyAgXG4gICAgICAgIC8vIOa4hemZpOi+k+WFpeWtl+auteWSjOmUmeivr+S/oeaBryAgXG4gICAgICAgIHVzZXJuYW1lLnZhbHVlID0gJyc7ICBcbiAgICAgICAgcGFzc3dvcmQudmFsdWUgPSAnJzsgIFxuICAgICAgICBlcnJvck1lc3NhZ2UudmFsdWUgPSAnJzsgIFxuICAgICAgfSBlbHNlIHsgIFxuICAgICAgICAvLyDnmbvlvZXlpLHotKXvvIzmmL7npLrplJnor6/kv6Hmga8gIFxuICAgICAgICBlcnJvck1lc3NhZ2UudmFsdWUgPSAn55So5oi35ZCN5oiW5a+G56CB6ZSZ6K+vJzsgIFxuICAgICAgfSAgXG4gICAgfTsgIFxuICBcbiAgICAvLyDlgYforr7nmoTpqozor4HnlKjmiLflh73mlbAgIFxuICAgIGNvbnN0IHZhbGlkYXRlVXNlciA9IGFzeW5jICh1c2VybmFtZUlucHV0LCBwYXNzd29yZElucHV0KSA9PiB7ICBcbiAgICAgIC8vIOWcqOi/memHjO+8jOaIkeS7rOWPquaYr+eugOWNleWcsOavlOi+g+eUqOaIt+WQjeWSjOWvhueggSAgXG4gICAgICAvLyDlnKjlrp7pmYXlvIDlj5HkuK3vvIzkvaDlupTor6Xlj5HpgIHor7fmsYLliLDlkI7nq6/ov5vooYzpqozor4EgIFxuICAgICAgcmV0dXJuIHVzZXJuYW1lSW5wdXQgPT09ICdhZG1pbicgJiYgcGFzc3dvcmRJbnB1dCA9PT0gJ3Bhc3N3b3JkJzsgIFxuICAgIH07ICBcbiAgXG4gICAgLy8g6L+U5Zue5ZON5bqU5byP55qE5pWw5o2u5ZKM5pa55rOVICBcbiAgICByZXR1cm4geyAgXG4gICAgICB1c2VybmFtZSwgIFxuICAgICAgcGFzc3dvcmQsICBcbiAgICAgIGVycm9yTWVzc2FnZSwgIFxuICAgICAgc3VibWl0Rm9ybSAgXG4gICAgfTsgIFxuICB9ICBcbn07ICBcbjwvc2NyaXB0PiAgXG4gIFxuPHN0eWxlIHNjb3BlZD4gIFxuLmxvZ2luLWNvbnRhaW5lciB7ICBcbiAgZGlzcGxheTogZmxleDsgIFxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyAgXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7ICBcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7ICBcbiAgaGVpZ2h0OiAxMDB2aDsgIFxuICBwYWRkaW5nOiAyMHB4OyAgXG59ICBcbiAgXG4uZXJyb3ItbWVzc2FnZSB7ICBcbiAgY29sb3I6IHJlZDsgIFxuICBtYXJnaW4tdG9wOiAxMHB4OyAgXG59ICBcbjwvc3R5bGU+Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///22\n");
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = {\n  data: function data() {\n    return {\n      username: '',\n      password: '',\n      errorMessage: ''\n    };\n  },\n  methods: {\n    login: function login() {\n      // 这里应该是发送登录请求到服务器的代码  \n      // 示例中仅做模拟处理    \n      if (this.username === 'admin' && this.password === 'password') {\n        // 登录成功处理，例如跳转到其他页面  \n        // this.$router.push('/dashboard'); // 假设你使用了 Vue Router \n        alert(\"登录成功\");\n        __f__(\"log\", '登录成功！', \" at pages/login/login.vue:55\");\n        this.errorMessage = ''; // 清空错误信息  \n      } else {\n        // 登录失败处理  \n        this.errorMessage = 'Invalid username or password';\n      }\n    }\n  }\n};\nexports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 23)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbG9naW4vbG9naW4udnVlIl0sIm5hbWVzIjpbImRhdGEiLCJ1c2VybmFtZSIsInBhc3N3b3JkIiwiZXJyb3JNZXNzYWdlIiwibWV0aG9kcyIsImxvZ2luIiwiYWxlcnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7ZUFzQ0E7RUFDQUE7SUFDQTtNQUNBQztNQUNBQztNQUNBQztJQUNBO0VBQ0E7RUFDQUM7SUFDQUM7TUFDQTtNQUNBO01BQ0E7UUFDQTtRQUNBO1FBQ0FDO1FBQ0E7UUFDQTtNQUNBO1FBQ0E7UUFDQTtNQUNBO0lBQ0E7RUFDQTtBQUNBO0FBQUEsMkIiLCJmaWxlIjoiMjIuanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+ICBcbiAgPGRpdiBpZD1cImxvZ2luLWNvbnRhaW5lclwiIGNsYXNzPVwiY29udGFpbmVyXCI+ICBcbiAgICA8ZGl2IGNsYXNzPVwibG9naW4tZm9ybVwiPiAgXG4gICAgICA8aDIgY2xhc3M9XCJsb2dpbi10aXRsZVwiPldlbGNvbWUgQmFjayE8L2gyPiAgXG4gICAgICA8Zm9ybSA+ICBcbiAgICAgICAgPGRpdiBjbGFzcz1cImZvcm0tZ3JvdXBcIj4gIFxuICAgICAgICAgIDxsYWJlbCBmb3I9XCJ1c2VybmFtZVwiIGNsYXNzPVwic3Itb25seVwiPlVzZXJuYW1lPC9sYWJlbD4gIFxuICAgICAgICAgIDxpbnB1dCAgXG4gICAgICAgICAgICB0eXBlPVwidGV4dFwiICBcbiAgICAgICAgICAgIGlkPVwidXNlcm5hbWVcIiAgXG4gICAgICAgICAgICB2LW1vZGVsPVwidXNlcm5hbWVcIiAgXG4gICAgICAgICAgICBjbGFzcz1cImZvcm0tY29udHJvbFwiICBcbiAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiVXNlcm5hbWVcIiAgXG4gICAgICAgICAgICByZXF1aXJlZCAgXG4gICAgICAgICAgICBhdXRvLWZvY3VzICBcbiAgICAgICAgICA+ICBcbiAgICAgICAgPC9kaXY+ICBcbiAgICAgICAgPGRpdiBjbGFzcz1cImZvcm0tZ3JvdXBcIj4gIFxuICAgICAgICAgIDxsYWJlbCBmb3I9XCJwYXNzd29yZFwiIGNsYXNzPVwic3Itb25seVwiPlBhc3N3b3JkPC9sYWJlbD4gIFxuICAgICAgICAgIDxpbnB1dCAgXG4gICAgICAgICAgICB0eXBlPVwicGFzc3dvcmRcIiAgXG4gICAgICAgICAgICBpZD1cInBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgdi1tb2RlbD1cInBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgY2xhc3M9XCJmb3JtLWNvbnRyb2xcIiAgXG4gICAgICAgICAgICBwbGFjZWhvbGRlcj1cIlBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgcmVxdWlyZWQgIFxuICAgICAgICAgID4gIFxuICAgICAgICA8L2Rpdj4gIFxuICAgICAgICA8YnV0dG9uIEBjbGljayA9XCJsb2dpblwiIHR5cGU9XCJzdWJtaXRcIiBjbGFzcz1cImJ0biBidG4tcHJpbWFyeSBidG4tYmxvY2tcIj4gIFxuICAgICAgICAgIExvZ2luICBcbiAgICAgICAgPC9idXR0b24+ICBcbiAgICAgIDwvZm9ybT4gIFxuICAgICAgPHAgdi1pZj1cImVycm9yTWVzc2FnZVwiIGNsYXNzPVwiZXJyb3ItbWVzc2FnZVwiPnt7IGVycm9yTWVzc2FnZSB9fTwvcD4gIFxuICAgIDwvZGl2PiAgXG4gIDwvZGl2PiAgXG48L3RlbXBsYXRlPiAgXG4gIFxuPHNjcmlwdD4gIFxuZXhwb3J0IGRlZmF1bHQgeyAgXG4gIGRhdGEoKSB7ICBcbiAgICByZXR1cm4geyAgXG4gICAgICB1c2VybmFtZTogJycsICBcbiAgICAgIHBhc3N3b3JkOiAnJywgIFxuICAgICAgZXJyb3JNZXNzYWdlOiAnJyAgXG4gICAgfTsgIFxuICB9LCAgXG4gIG1ldGhvZHM6IHsgIFxuICAgIGxvZ2luKCkgeyAgXG4gICAgICAvLyDov5nph4zlupTor6XmmK/lj5HpgIHnmbvlvZXor7fmsYLliLDmnI3liqHlmajnmoTku6PnoIEgIFxuICAgICAgLy8g56S65L6L5Lit5LuF5YGa5qih5ouf5aSE55CGICAgIFxuICAgICAgaWYgKHRoaXMudXNlcm5hbWUgPT09ICdhZG1pbicgJiYgdGhpcy5wYXNzd29yZCA9PT0gJ3Bhc3N3b3JkJykgeyAgXG4gICAgICAgIC8vIOeZu+W9leaIkOWKn+WkhOeQhu+8jOS+i+Wmgui3s+i9rOWIsOWFtuS7lumhtemdoiAgXG4gICAgICAgIC8vIHRoaXMuJHJvdXRlci5wdXNoKCcvZGFzaGJvYXJkJyk7IC8vIOWBh+iuvuS9oOS9v+eUqOS6hiBWdWUgUm91dGVyIFxyXG5cdFx0YWxlcnQoXCLnmbvlvZXmiJDlip9cIik7XHJcblx0XHRjb25zb2xlLmxvZygn55m75b2V5oiQ5Yqf77yBJyk7ICBcbiAgICAgICAgdGhpcy5lcnJvck1lc3NhZ2UgPSAnJzsgLy8g5riF56m66ZSZ6K+v5L+h5oGvICBcbiAgICAgIH0gZWxzZSB7ICBcbiAgICAgICAgLy8g55m75b2V5aSx6LSl5aSE55CGICBcbiAgICAgICAgdGhpcy5lcnJvck1lc3NhZ2UgPSAnSW52YWxpZCB1c2VybmFtZSBvciBwYXNzd29yZCc7ICBcbiAgICAgIH0gIFxuICAgIH0gIFxuICB9ICBcbn07ICBcbjwvc2NyaXB0PiAgXG4gIFxuPHN0eWxlIHNjb3BlZD4gIFxuLmNvbnRhaW5lciB7ICBcbiAgZGlzcGxheTogZmxleDsgIFxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgIFxuICBhbGlnbi1pdGVtczogY2VudGVyOyAgXG4gIGhlaWdodDogMTAwdmg7ICBcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y1ZjVmNTsgIFxufSAgXG4gIFxuLmxvZ2luLWZvcm0geyAgXG4gIHdpZHRoOiAzNTBweDsgIFxuICBwYWRkaW5nOiAyMHB4OyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7ICBcbiAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiYSgwLCAwLCAwLCAwLjEpOyAgXG4gIGJvcmRlci1yYWRpdXM6IDRweDsgIFxufSAgXG4gIFxuLmxvZ2luLXRpdGxlIHsgIFxuICBmb250LXNpemU6IDI0cHg7ICBcbiAgdGV4dC1hbGlnbjogY2VudGVyOyAgXG4gIG1hcmdpbi1ib3R0b206IDIwcHg7ICBcbn0gIFxuICBcbi5mb3JtLWdyb3VwIHsgIFxuICBtYXJnaW4tYm90dG9tOiAxNXB4OyAgXG59ICBcbiAgXG4uZm9ybS1jb250cm9sIHsgIFxuICBkaXNwbGF5OiBibG9jazsgIFxuICB3aWR0aDogMTAwJTsgIFxuICBwYWRkaW5nOiAxMHB4OyAgXG4gIGZvbnQtc2l6ZTogMTZweDsgIFxuICBsaW5lLWhlaWdodDogMS41OyAgXG4gIGNvbG9yOiAjNDk1MDU3OyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7ICBcbiAgYmFja2dyb3VuZC1jbGlwOiBwYWRkaW5nLWJveDsgIFxuICBib3JkZXI6IDFweCBzb2xpZCAjY2VkNGRhOyAgXG4gIGJvcmRlci1yYWRpdXM6IDRweDsgIFxuICB0cmFuc2l0aW9uOiBib3JkZXItY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJveC1zaGFkb3cgMC4xNXMgZWFzZS1pbi1vdXQ7ICBcbn0gIFxuICBcbi5mb3JtLWNvbnRyb2w6Zm9jdXMgeyAgXG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjsgIFxuICBvdXRsaW5lOiAwOyAgXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTsgIFxufSAgXG4gIFxuLmJ0biB7ICBcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrOyAgXG4gIGZvbnQtd2VpZ2h0OiA0MDA7ICBcbiAgY29sb3I6ICNmZmY7ICBcbiAgdGV4dC1hbGlnbjogY2VudGVyOyAgXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7ICBcbiAgdXNlci1zZWxlY3Q6IG5vbmU7ICBcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwN2JmZjsgIFxuICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDsgIFxuICBwYWRkaW5nOiAwLjM3NXJlbSAwLjc1cmVtOyAgXG4gIGZvbnQtc2l6ZTogMXJlbTsgIFxuICBsaW5lLWhlaWdodDogMS41OyAgXG4gIGJvcmRlci1yYWRpdXM6IDAuMjVyZW07ICBcbiAgdHJhbnNpdGlvbjogY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJhY2tncm91bmQtY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJvcmRlci1jb2xvciAwLjE1cyBlYXNlLWluLW91dCwgYm94LXNoYWRvdyAwLjE1cyBlYXNlLWluLW91dDsgIFxufSAgXG4gIFxuLmJ0bjpob3ZlciB7ICBcbiAgY3Vyc29yOiBwb2ludGVyOyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDU2YjM7ICBcbn0gIFxuICBcbi5idG4tYmxvY2sgeyAgXG4gIGRpc3BsYXk6IGJsb2NrOyAgXG4gIHdpZHRoOiAxMDAlOyAgXG59ICBcbiAgXG4uZXJyb3ItbWVzc2FnZSB7ICBcbiAgY29sb3I6ICNkYzM1NDU7ICBcbiAgZm9udC1zaXplOiAxNHB4OyAgXG4gIHRleHQtYWxpZ246IGNlbnRlcjsgIFxuICBtYXJnaW4tdG9wOiAxMHB4OyAgXG59ICBcbiAgXG4vKiDpmpDol4/ovoXliqnmgKfmlofmnKzmoIfnrb4gKi8gIFxuLnNyLW9ubHkgeyAgXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTsgIFxuICB3aWR0aDogMXB4OyAgXG4gIGhlaWdodDogMXB4OyAgXG4gIHBhZGRpbmc6IDA7ICBcbiAgbWFyZ2luOiAtMXB4OyAgXG4gIG92ZXJmbG93OiBoaWRkZW47ICBcbiAgY2xpcDogcmVjdCgwLCAwLCAwLCAwKTsgIFxuICB3aGl0ZS1zcGFjZTogbm93cmFwOyAgXG4gIGJvcmRlcjogMDsgIFxufSAgXG48L3N0eWxlPiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///22\n");
 
 /***/ }),
 /* 23 */
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*!*********************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js ***!
+  \*********************************************************************/
+/*! exports provided: log, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var _typeof = __webpack_require__(/*! @babel/runtime/helpers/typeof */ 4);
-// TODO(Babel 8): Remove this file.
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log", function() { return log; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formatLog; });
+function typof (v) {
+  var s = Object.prototype.toString.call(v)
+  return s.substring(8, s.length - 1)
+}
 
-var runtime = __webpack_require__(/*! ../helpers/regeneratorRuntime */ 24)();
-module.exports = runtime;
+function isDebugMode () {
+  /* eslint-disable no-undef */
+  return typeof __channelId__ === 'string' && __channelId__
+}
 
-// Copied from https://github.com/facebook/regenerator/blob/main/packages/runtime/runtime.js#L736=
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  if ((typeof globalThis === "undefined" ? "undefined" : _typeof(globalThis)) === "object") {
-    globalThis.regeneratorRuntime = runtime;
-  } else {
-    Function("r", "regeneratorRuntime = r")(runtime);
+function jsonStringifyReplacer (k, p) {
+  switch (typof(p)) {
+    case 'Function':
+      return 'function() { [native code] }'
+    default :
+      return p
   }
 }
+
+function log (type) {
+  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    args[_key - 1] = arguments[_key]
+  }
+  console[type].apply(console, args)
+}
+
+function formatLog () {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key]
+  }
+  var type = args.shift()
+  if (isDebugMode()) {
+    args.push(args.pop().replace('at ', 'uni-app:///'))
+    return console[type].apply(console, args)
+  }
+
+  var msgs = args.map(function (v) {
+    var type = Object.prototype.toString.call(v).toLowerCase()
+
+    if (type === '[object object]' || type === '[object array]') {
+      try {
+        v = '---BEGIN:JSON---' + JSON.stringify(v, jsonStringifyReplacer) + '---END:JSON---'
+      } catch (e) {
+        v = type
+      }
+    } else {
+      if (v === null) {
+        v = '---NULL---'
+      } else if (v === undefined) {
+        v = '---UNDEFINED---'
+      } else {
+        var vType = typof(v).toUpperCase()
+
+        if (vType === 'NUMBER' || vType === 'BOOLEAN') {
+          v = '---BEGIN:' + vType + '---' + v + '---END:' + vType + '---'
+        } else {
+          v = String(v)
+        }
+      }
+    }
+
+    return v
+  })
+  var msg = ''
+
+  if (msgs.length > 1) {
+    var lastMsg = msgs.pop()
+    msg = msgs.join('---COMMA---')
+
+    if (lastMsg.indexOf(' at ') === 0) {
+      msg += lastMsg
+    } else {
+      msg += '---COMMA---' + lastMsg
+    }
+  } else {
+    msg = msgs[0]
+  }
+
+  console[type](msg)
+}
+
 
 /***/ }),
 /* 24 */
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
-  \*******************************************************************/
+/*!****************************************************************************************************!*\
+  !*** C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue?mpType=page ***!
+  \****************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var _typeof = __webpack_require__(/*! ./typeof.js */ 4)["default"];
-function _regeneratorRuntime() {
-  "use strict";
-
-  /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-  module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
-    return exports;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  var exports = {},
-    Op = Object.prototype,
-    hasOwn = Op.hasOwnProperty,
-    defineProperty = Object.defineProperty || function (obj, key, desc) {
-      obj[key] = desc.value;
-    },
-    $Symbol = "function" == typeof Symbol ? Symbol : {},
-    iteratorSymbol = $Symbol.iterator || "@@iterator",
-    asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
-    toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-  function define(obj, key, value) {
-    return Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: !0,
-      configurable: !0,
-      writable: !0
-    }), obj[key];
-  }
-  try {
-    define({}, "");
-  } catch (err) {
-    define = function define(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
-      generator = Object.create(protoGenerator.prototype),
-      context = new Context(tryLocsList || []);
-    return defineProperty(generator, "_invoke", {
-      value: makeInvokeMethod(innerFn, self, context)
-    }), generator;
-  }
-  function tryCatch(fn, obj, arg) {
-    try {
-      return {
-        type: "normal",
-        arg: fn.call(obj, arg)
-      };
-    } catch (err) {
-      return {
-        type: "throw",
-        arg: err
-      };
-    }
-  }
-  exports.wrap = wrap;
-  var ContinueSentinel = {};
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
-    return this;
-  });
-  var getProto = Object.getPrototypeOf,
-    NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
-  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function (method) {
-      define(prototype, method, function (arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if ("throw" !== record.type) {
-        var result = record.arg,
-          value = result.value;
-        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
-          invoke("next", value, resolve, reject);
-        }, function (err) {
-          invoke("throw", err, resolve, reject);
-        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
-          result.value = unwrapped, resolve(result);
-        }, function (error) {
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-      reject(record.arg);
-    }
-    var previousPromise;
-    defineProperty(this, "_invoke", {
-      value: function value(method, arg) {
-        function callInvokeWithMethodAndArg() {
-          return new PromiseImpl(function (resolve, reject) {
-            invoke(method, arg, resolve, reject);
-          });
-        }
-        return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
-      }
-    });
-  }
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = "suspendedStart";
-    return function (method, arg) {
-      if ("executing" === state) throw new Error("Generator is already running");
-      if ("completed" === state) {
-        if ("throw" === method) throw arg;
-        return doneResult();
-      }
-      for (context.method = method, context.arg = arg;;) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-        if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
-          if ("suspendedStart" === state) throw state = "completed", context.arg;
-          context.dispatchException(context.arg);
-        } else "return" === context.method && context.abrupt("return", context.arg);
-        state = "executing";
-        var record = tryCatch(innerFn, self, context);
-        if ("normal" === record.type) {
-          if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
-          return {
-            value: record.arg,
-            done: context.done
-          };
-        }
-        "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
-      }
-    };
-  }
-  function maybeInvokeDelegate(delegate, context) {
-    var methodName = context.method,
-      method = delegate.iterator[methodName];
-    if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel;
-    var record = tryCatch(method, delegate.iterator, context.arg);
-    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
-    var info = record.arg;
-    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
-  }
-  function pushTryEntry(locs) {
-    var entry = {
-      tryLoc: locs[0]
-    };
-    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
-  }
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal", delete record.arg, entry.completion = record;
-  }
-  function Context(tryLocsList) {
-    this.tryEntries = [{
-      tryLoc: "root"
-    }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0);
-  }
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) return iteratorMethod.call(iterable);
-      if ("function" == typeof iterable.next) return iterable;
-      if (!isNaN(iterable.length)) {
-        var i = -1,
-          next = function next() {
-            for (; ++i < iterable.length;) {
-              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            }
-            return next.value = undefined, next.done = !0, next;
-          };
-        return next.next = next;
-      }
-    }
-    return {
-      next: doneResult
-    };
-  }
-  function doneResult() {
-    return {
-      value: undefined,
-      done: !0
-    };
-  }
-  return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", {
-    value: GeneratorFunctionPrototype,
-    configurable: !0
-  }), defineProperty(GeneratorFunctionPrototype, "constructor", {
-    value: GeneratorFunction,
-    configurable: !0
-  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
-    var ctor = "function" == typeof genFun && genFun.constructor;
-    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
-  }, exports.mark = function (genFun) {
-    return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun;
-  }, exports.awrap = function (arg) {
-    return {
-      __await: arg
-    };
-  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
-    return this;
-  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    void 0 === PromiseImpl && (PromiseImpl = Promise);
-    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
-    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
-      return result.done ? result.value : iter.next();
-    });
-  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
-    return this;
-  }), define(Gp, "toString", function () {
-    return "[object Generator]";
-  }), exports.keys = function (val) {
-    var object = Object(val),
-      keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    return keys.reverse(), function next() {
-      for (; keys.length;) {
-        var key = keys.pop();
-        if (key in object) return next.value = key, next.done = !1, next;
-      }
-      return next.done = !0, next;
-    };
-  }, exports.values = values, Context.prototype = {
-    constructor: Context,
-    reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
-        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
-      }
-    },
-    stop: function stop() {
-      this.done = !0;
-      var rootRecord = this.tryEntries[0].completion;
-      if ("throw" === rootRecord.type) throw rootRecord.arg;
-      return this.rval;
-    },
-    dispatchException: function dispatchException(exception) {
-      if (this.done) throw exception;
-      var context = this;
-      function handle(loc, caught) {
-        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
-      }
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i],
-          record = entry.completion;
-        if ("root" === entry.tryLoc) return handle("end");
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc"),
-            hasFinally = hasOwn.call(entry, "finallyLoc");
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
-            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
-          } else {
-            if (!hasFinally) throw new Error("try statement without catch or finally");
-            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
-          }
-        }
-      }
-    },
-    abrupt: function abrupt(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
-      var record = finallyEntry ? finallyEntry.completion : {};
-      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
-    },
-    complete: function complete(record, afterLoc) {
-      if ("throw" === record.type) throw record.arg;
-      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
-    },
-    finish: function finish(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
-      }
-    },
-    "catch": function _catch(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if ("throw" === record.type) {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-      throw new Error("illegal catch attempt");
-    },
-    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
-      return this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
-    }
-  }, exports;
-}
-module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login.vue?vue&type=template&id=5b26a3ac&scoped=true&mpType=page */ 25);\n/* harmony import */ var _login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.vue?vue&type=script&lang=js&mpType=page */ 29);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__) if([\"default\"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n/* harmony import */ var _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 12);\n\nvar renderjs\n\n\n\n\n/* normalize component */\n\nvar component = Object(_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  \"5b26a3ac\",\n  null,\n  false,\n  _login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__[\"components\"],\n  renderjs\n)\n\ncomponent.options.__file = \"pages/login/login.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBeUk7QUFDekk7QUFDb0U7QUFDTDs7O0FBRy9EO0FBQ21NO0FBQ25NLGdCQUFnQix1TUFBVTtBQUMxQixFQUFFLHNGQUFNO0FBQ1IsRUFBRSx1R0FBTTtBQUNSLEVBQUUsZ0hBQWU7QUFDakI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEVBQUUsMkdBQVU7QUFDWjtBQUNBOztBQUVBO0FBQ2UsZ0YiLCJmaWxlIjoiMjQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZW5kZXIsIHN0YXRpY1JlbmRlckZucywgcmVjeWNsYWJsZVJlbmRlciwgY29tcG9uZW50cyB9IGZyb20gXCIuL2xvZ2luLnZ1ZT92dWUmdHlwZT10ZW1wbGF0ZSZpZD01YjI2YTNhYyZzY29wZWQ9dHJ1ZSZtcFR5cGU9cGFnZVwiXG52YXIgcmVuZGVyanNcbmltcG9ydCBzY3JpcHQgZnJvbSBcIi4vbG9naW4udnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJm1wVHlwZT1wYWdlXCJcbmV4cG9ydCAqIGZyb20gXCIuL2xvZ2luLnZ1ZT92dWUmdHlwZT1zY3JpcHQmbGFuZz1qcyZtcFR5cGU9cGFnZVwiXG5cblxuLyogbm9ybWFsaXplIGNvbXBvbmVudCAqL1xuaW1wb3J0IG5vcm1hbGl6ZXIgZnJvbSBcIiEuLi8uLi8uLi8uLi8uLi8uLi9IQnVpbGRlclguMy45OS4yMDIzMTIyNjExL0hCdWlsZGVyWC9wbHVnaW5zL3VuaWFwcC1jbGkvbm9kZV9tb2R1bGVzL0BkY2xvdWRpby92dWUtY2xpLXBsdWdpbi11bmkvcGFja2FnZXMvdnVlLWxvYWRlci9saWIvcnVudGltZS9jb21wb25lbnROb3JtYWxpemVyLmpzXCJcbnZhciBjb21wb25lbnQgPSBub3JtYWxpemVyKFxuICBzY3JpcHQsXG4gIHJlbmRlcixcbiAgc3RhdGljUmVuZGVyRm5zLFxuICBmYWxzZSxcbiAgbnVsbCxcbiAgXCI1YjI2YTNhY1wiLFxuICBudWxsLFxuICBmYWxzZSxcbiAgY29tcG9uZW50cyxcbiAgcmVuZGVyanNcbilcblxuY29tcG9uZW50Lm9wdGlvbnMuX19maWxlID0gXCJwYWdlcy9sb2dpbi9sb2dpbi52dWVcIlxuZXhwb3J0IGRlZmF1bHQgY29tcG9uZW50LmV4cG9ydHMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///24\n");
 
 /***/ }),
 /* 25 */
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*!**********************************************************************************************************************************************!*\
+  !*** C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue?vue&type=template&id=5b26a3ac&scoped=true&mpType=page ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-      args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-      _next(undefined);
-    });
-  };
-}
-module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_11_0_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--11-0!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./login.vue?vue&type=template&id=5b26a3ac&scoped=true&mpType=page */ 28);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_11_0_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_11_0_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_11_0_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_11_0_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_template_id_5b26a3ac_scoped_true_mpType_page__WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
 
 /***/ }),
 /* 26 */
@@ -1027,6 +790,152 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var _typeof = __webpack_require__(/*! @babel/runtime/helpers/typeof */ 4);\nuni.addInterceptor({\n  returnValue: function returnValue(res) {\n    if (!(!!res && (_typeof(res) === \"object\" || typeof res === \"function\") && typeof res.then === \"function\")) {\n      return res;\n    }\n    return new Promise(function (resolve, reject) {\n      res.then(function (res) {\n        return res[0] ? reject(res[0]) : resolve(res[1]);\n      });\n    });\n  }\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vdW5pLnByb21pc2lmeS5hZGFwdG9yLmpzIl0sIm5hbWVzIjpbInVuaSIsImFkZEludGVyY2VwdG9yIiwicmV0dXJuVmFsdWUiLCJyZXMiLCJ0aGVuIiwiUHJvbWlzZSIsInJlc29sdmUiLCJyZWplY3QiXSwibWFwcGluZ3MiOiI7QUFBQUEsR0FBRyxDQUFDQyxjQUFjLENBQUM7RUFDakJDLFdBQVcsdUJBQUVDLEdBQUcsRUFBRTtJQUNoQixJQUFJLEVBQUUsQ0FBQyxDQUFDQSxHQUFHLEtBQUssUUFBT0EsR0FBRyxNQUFLLFFBQVEsSUFBSSxPQUFPQSxHQUFHLEtBQUssVUFBVSxDQUFDLElBQUksT0FBT0EsR0FBRyxDQUFDQyxJQUFJLEtBQUssVUFBVSxDQUFDLEVBQUU7TUFDeEcsT0FBT0QsR0FBRztJQUNaO0lBQ0EsT0FBTyxJQUFJRSxPQUFPLENBQUMsVUFBQ0MsT0FBTyxFQUFFQyxNQUFNLEVBQUs7TUFDdENKLEdBQUcsQ0FBQ0MsSUFBSSxDQUFDLFVBQUNELEdBQUc7UUFBQSxPQUFLQSxHQUFHLENBQUMsQ0FBQyxDQUFDLEdBQUdJLE1BQU0sQ0FBQ0osR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDLEdBQUdHLE9BQU8sQ0FBQ0gsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO01BQUEsRUFBQztJQUM5RCxDQUFDLENBQUM7RUFDSjtBQUNGLENBQUMsQ0FBQyIsImZpbGUiOiIyNy5qcyIsInNvdXJjZXNDb250ZW50IjpbInVuaS5hZGRJbnRlcmNlcHRvcih7XHJcbiAgcmV0dXJuVmFsdWUgKHJlcykge1xyXG4gICAgaWYgKCEoISFyZXMgJiYgKHR5cGVvZiByZXMgPT09IFwib2JqZWN0XCIgfHwgdHlwZW9mIHJlcyA9PT0gXCJmdW5jdGlvblwiKSAmJiB0eXBlb2YgcmVzLnRoZW4gPT09IFwiZnVuY3Rpb25cIikpIHtcclxuICAgICAgcmV0dXJuIHJlcztcclxuICAgIH1cclxuICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7XHJcbiAgICAgIHJlcy50aGVuKChyZXMpID0+IHJlc1swXSA/IHJlamVjdChyZXNbMF0pIDogcmVzb2x2ZShyZXNbMV0pKTtcclxuICAgIH0pO1xyXG4gIH0sXHJcbn0pOyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///27\n");
+
+/***/ }),
+/* 28 */
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--11-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue?vue&type=template&id=5b26a3ac&scoped=true&mpType=page ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: _vm._$s(0, "sc", "container"),
+      attrs: { id: "login-container", _i: 0 },
+    },
+    [
+      _c(
+        "div",
+        { staticClass: _vm._$s(1, "sc", "login-form"), attrs: { _i: 1 } },
+        [
+          _c("h2", {
+            staticClass: _vm._$s(2, "sc", "login-title"),
+            attrs: { _i: 2 },
+          }),
+          _c("form", [
+            _c(
+              "div",
+              { staticClass: _vm._$s(4, "sc", "form-group"), attrs: { _i: 4 } },
+              [
+                _c("label", {
+                  staticClass: _vm._$s(5, "sc", "sr-only"),
+                  attrs: { _i: 5 },
+                }),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.username,
+                      expression: "username",
+                    },
+                  ],
+                  staticClass: _vm._$s(6, "sc", "form-control"),
+                  attrs: { id: "username", _i: 6 },
+                  domProps: { value: _vm._$s(6, "v-model", _vm.username) },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.username = $event.target.value
+                    },
+                  },
+                }),
+              ]
+            ),
+            _c(
+              "div",
+              { staticClass: _vm._$s(7, "sc", "form-group"), attrs: { _i: 7 } },
+              [
+                _c("label", {
+                  staticClass: _vm._$s(8, "sc", "sr-only"),
+                  attrs: { _i: 8 },
+                }),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password",
+                    },
+                  ],
+                  staticClass: _vm._$s(9, "sc", "form-control"),
+                  attrs: { id: "password", _i: 9 },
+                  domProps: { value: _vm._$s(9, "v-model", _vm.password) },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    },
+                  },
+                }),
+              ]
+            ),
+            _c("button", {
+              staticClass: _vm._$s(10, "sc", "btn btn-primary btn-block"),
+              attrs: { _i: 10 },
+              on: { click: _vm.login },
+            }),
+          ]),
+          _vm._$s(11, "i", _vm.errorMessage)
+            ? _c(
+                "p",
+                {
+                  staticClass: _vm._$s(11, "sc", "error-message"),
+                  attrs: { _i: 11 },
+                },
+                [_vm._v(_vm._$s(11, "t0-0", _vm._s(_vm.errorMessage)))]
+              )
+            : _vm._e(),
+        ]
+      ),
+    ]
+  )
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 29 */
+/*!****************************************************************************************************************************!*\
+  !*** C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue?vue&type=script&lang=js&mpType=page ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--7-1!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!../../../../../../HBuilderX.3.99.2023122611/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./login.vue?vue&type=script&lang=js&mpType=page */ 30);\n/* harmony import */ var _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__) if([\"default\"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n /* harmony default export */ __webpack_exports__[\"default\"] = (_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_7_1_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_HBuilderX_3_99_2023122611_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_login_vue_vue_type_script_lang_js_mpType_page__WEBPACK_IMPORTED_MODULE_0___default.a); //# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQTRxQixDQUFnQiw4cUJBQUcsRUFBQyIsImZpbGUiOiIyOS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb2QgZnJvbSBcIi0hLi4vLi4vLi4vLi4vLi4vLi4vSEJ1aWxkZXJYLjMuOTkuMjAyMzEyMjYxMS9IQnVpbGRlclgvcGx1Z2lucy91bmlhcHAtY2xpL25vZGVfbW9kdWxlcy9iYWJlbC1sb2FkZXIvbGliL2luZGV4LmpzIS4uLy4uLy4uLy4uLy4uLy4uL0hCdWlsZGVyWC4zLjk5LjIwMjMxMjI2MTEvSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy93ZWJwYWNrLXByZXByb2Nlc3MtbG9hZGVyL2luZGV4LmpzPz9yZWYtLTctMSEuLi8uLi8uLi8uLi8uLi8uLi9IQnVpbGRlclguMy45OS4yMDIzMTIyNjExL0hCdWlsZGVyWC9wbHVnaW5zL3VuaWFwcC1jbGkvbm9kZV9tb2R1bGVzL0BkY2xvdWRpby92dWUtY2xpLXBsdWdpbi11bmkvcGFja2FnZXMvd2VicGFjay11bmktYXBwLWxvYWRlci91c2luZy1jb21wb25lbnRzLmpzIS4uLy4uLy4uLy4uLy4uLy4uL0hCdWlsZGVyWC4zLjk5LjIwMjMxMjI2MTEvSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy92dWUtbG9hZGVyL2xpYi9pbmRleC5qcz8/dnVlLWxvYWRlci1vcHRpb25zIS4vbG9naW4udnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJm1wVHlwZT1wYWdlXCI7IGV4cG9ydCBkZWZhdWx0IG1vZDsgZXhwb3J0ICogZnJvbSBcIi0hLi4vLi4vLi4vLi4vLi4vLi4vSEJ1aWxkZXJYLjMuOTkuMjAyMzEyMjYxMS9IQnVpbGRlclgvcGx1Z2lucy91bmlhcHAtY2xpL25vZGVfbW9kdWxlcy9iYWJlbC1sb2FkZXIvbGliL2luZGV4LmpzIS4uLy4uLy4uLy4uLy4uLy4uL0hCdWlsZGVyWC4zLjk5LjIwMjMxMjI2MTEvSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy93ZWJwYWNrLXByZXByb2Nlc3MtbG9hZGVyL2luZGV4LmpzPz9yZWYtLTctMSEuLi8uLi8uLi8uLi8uLi8uLi9IQnVpbGRlclguMy45OS4yMDIzMTIyNjExL0hCdWlsZGVyWC9wbHVnaW5zL3VuaWFwcC1jbGkvbm9kZV9tb2R1bGVzL0BkY2xvdWRpby92dWUtY2xpLXBsdWdpbi11bmkvcGFja2FnZXMvd2VicGFjay11bmktYXBwLWxvYWRlci91c2luZy1jb21wb25lbnRzLmpzIS4uLy4uLy4uLy4uLy4uLy4uL0hCdWlsZGVyWC4zLjk5LjIwMjMxMjI2MTEvSEJ1aWxkZXJYL3BsdWdpbnMvdW5pYXBwLWNsaS9ub2RlX21vZHVsZXMvQGRjbG91ZGlvL3Z1ZS1jbGktcGx1Z2luLXVuaS9wYWNrYWdlcy92dWUtbG9hZGVyL2xpYi9pbmRleC5qcz8/dnVlLWxvYWRlci1vcHRpb25zIS4vbG9naW4udnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJm1wVHlwZT1wYWdlXCIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///29\n");
+
+/***/ }),
+/* 30 */
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--7-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!C:/Users/廖深豪/Documents/HBuilderProjects/T1_app/test1/front/pages/login/login.vue?vue&type=script&lang=js&mpType=page ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = {\n  data: function data() {\n    return {\n      username: '',\n      password: '',\n      errorMessage: ''\n    };\n  },\n  methods: {\n    login: function login() {\n      // 这里应该是发送登录请求到服务器的代码  \n      // 示例中仅做模拟处理    \n      if (this.username === 'admin' && this.password === 'password') {\n        // 登录成功处理，例如跳转到其他页面  \n        // this.$router.push('/dashboard'); // 假设你使用了 Vue Router \n        alert(\"登录成功\");\n        __f__(\"log\", '登录成功！', \" at pages/login/login.vue:55\");\n        this.errorMessage = ''; // 清空错误信息  \n      } else {\n        // 登录失败处理  \n        this.errorMessage = 'Invalid username or password';\n      }\n    }\n  }\n};\nexports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 23)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvbG9naW4vbG9naW4udnVlIl0sIm5hbWVzIjpbImRhdGEiLCJ1c2VybmFtZSIsInBhc3N3b3JkIiwiZXJyb3JNZXNzYWdlIiwibWV0aG9kcyIsImxvZ2luIiwiYWxlcnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7ZUFzQ0E7RUFDQUE7SUFDQTtNQUNBQztNQUNBQztNQUNBQztJQUNBO0VBQ0E7RUFDQUM7SUFDQUM7TUFDQTtNQUNBO01BQ0E7UUFDQTtRQUNBO1FBQ0FDO1FBQ0E7UUFDQTtNQUNBO1FBQ0E7UUFDQTtNQUNBO0lBQ0E7RUFDQTtBQUNBO0FBQUEsMkIiLCJmaWxlIjoiMzAuanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+ICBcbiAgPGRpdiBpZD1cImxvZ2luLWNvbnRhaW5lclwiIGNsYXNzPVwiY29udGFpbmVyXCI+ICBcbiAgICA8ZGl2IGNsYXNzPVwibG9naW4tZm9ybVwiPiAgXG4gICAgICA8aDIgY2xhc3M9XCJsb2dpbi10aXRsZVwiPldlbGNvbWUgQmFjayE8L2gyPiAgXG4gICAgICA8Zm9ybSA+ICBcbiAgICAgICAgPGRpdiBjbGFzcz1cImZvcm0tZ3JvdXBcIj4gIFxuICAgICAgICAgIDxsYWJlbCBmb3I9XCJ1c2VybmFtZVwiIGNsYXNzPVwic3Itb25seVwiPlVzZXJuYW1lPC9sYWJlbD4gIFxuICAgICAgICAgIDxpbnB1dCAgXG4gICAgICAgICAgICB0eXBlPVwidGV4dFwiICBcbiAgICAgICAgICAgIGlkPVwidXNlcm5hbWVcIiAgXG4gICAgICAgICAgICB2LW1vZGVsPVwidXNlcm5hbWVcIiAgXG4gICAgICAgICAgICBjbGFzcz1cImZvcm0tY29udHJvbFwiICBcbiAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiVXNlcm5hbWVcIiAgXG4gICAgICAgICAgICByZXF1aXJlZCAgXG4gICAgICAgICAgICBhdXRvLWZvY3VzICBcbiAgICAgICAgICA+ICBcbiAgICAgICAgPC9kaXY+ICBcbiAgICAgICAgPGRpdiBjbGFzcz1cImZvcm0tZ3JvdXBcIj4gIFxuICAgICAgICAgIDxsYWJlbCBmb3I9XCJwYXNzd29yZFwiIGNsYXNzPVwic3Itb25seVwiPlBhc3N3b3JkPC9sYWJlbD4gIFxuICAgICAgICAgIDxpbnB1dCAgXG4gICAgICAgICAgICB0eXBlPVwicGFzc3dvcmRcIiAgXG4gICAgICAgICAgICBpZD1cInBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgdi1tb2RlbD1cInBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgY2xhc3M9XCJmb3JtLWNvbnRyb2xcIiAgXG4gICAgICAgICAgICBwbGFjZWhvbGRlcj1cIlBhc3N3b3JkXCIgIFxuICAgICAgICAgICAgcmVxdWlyZWQgIFxuICAgICAgICAgID4gIFxuICAgICAgICA8L2Rpdj4gIFxuICAgICAgICA8YnV0dG9uIEBjbGljayA9XCJsb2dpblwiIHR5cGU9XCJzdWJtaXRcIiBjbGFzcz1cImJ0biBidG4tcHJpbWFyeSBidG4tYmxvY2tcIj4gIFxuICAgICAgICAgIExvZ2luICBcbiAgICAgICAgPC9idXR0b24+ICBcbiAgICAgIDwvZm9ybT4gIFxuICAgICAgPHAgdi1pZj1cImVycm9yTWVzc2FnZVwiIGNsYXNzPVwiZXJyb3ItbWVzc2FnZVwiPnt7IGVycm9yTWVzc2FnZSB9fTwvcD4gIFxuICAgIDwvZGl2PiAgXG4gIDwvZGl2PiAgXG48L3RlbXBsYXRlPiAgXG4gIFxuPHNjcmlwdD4gIFxuZXhwb3J0IGRlZmF1bHQgeyAgXG4gIGRhdGEoKSB7ICBcbiAgICByZXR1cm4geyAgXG4gICAgICB1c2VybmFtZTogJycsICBcbiAgICAgIHBhc3N3b3JkOiAnJywgIFxuICAgICAgZXJyb3JNZXNzYWdlOiAnJyAgXG4gICAgfTsgIFxuICB9LCAgXG4gIG1ldGhvZHM6IHsgIFxuICAgIGxvZ2luKCkgeyAgXG4gICAgICAvLyDov5nph4zlupTor6XmmK/lj5HpgIHnmbvlvZXor7fmsYLliLDmnI3liqHlmajnmoTku6PnoIEgIFxuICAgICAgLy8g56S65L6L5Lit5LuF5YGa5qih5ouf5aSE55CGICAgIFxuICAgICAgaWYgKHRoaXMudXNlcm5hbWUgPT09ICdhZG1pbicgJiYgdGhpcy5wYXNzd29yZCA9PT0gJ3Bhc3N3b3JkJykgeyAgXG4gICAgICAgIC8vIOeZu+W9leaIkOWKn+WkhOeQhu+8jOS+i+Wmgui3s+i9rOWIsOWFtuS7lumhtemdoiAgXG4gICAgICAgIC8vIHRoaXMuJHJvdXRlci5wdXNoKCcvZGFzaGJvYXJkJyk7IC8vIOWBh+iuvuS9oOS9v+eUqOS6hiBWdWUgUm91dGVyIFxyXG5cdFx0YWxlcnQoXCLnmbvlvZXmiJDlip9cIik7XHJcblx0XHRjb25zb2xlLmxvZygn55m75b2V5oiQ5Yqf77yBJyk7ICBcbiAgICAgICAgdGhpcy5lcnJvck1lc3NhZ2UgPSAnJzsgLy8g5riF56m66ZSZ6K+v5L+h5oGvICBcbiAgICAgIH0gZWxzZSB7ICBcbiAgICAgICAgLy8g55m75b2V5aSx6LSl5aSE55CGICBcbiAgICAgICAgdGhpcy5lcnJvck1lc3NhZ2UgPSAnSW52YWxpZCB1c2VybmFtZSBvciBwYXNzd29yZCc7ICBcbiAgICAgIH0gIFxuICAgIH0gIFxuICB9ICBcbn07ICBcbjwvc2NyaXB0PiAgXG4gIFxuPHN0eWxlIHNjb3BlZD4gIFxuLmNvbnRhaW5lciB7ICBcbiAgZGlzcGxheTogZmxleDsgIFxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgIFxuICBhbGlnbi1pdGVtczogY2VudGVyOyAgXG4gIGhlaWdodDogMTAwdmg7ICBcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y1ZjVmNTsgIFxufSAgXG4gIFxuLmxvZ2luLWZvcm0geyAgXG4gIHdpZHRoOiAzNTBweDsgIFxuICBwYWRkaW5nOiAyMHB4OyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmZmZmY7ICBcbiAgYm94LXNoYWRvdzogMCAwIDEwcHggcmdiYSgwLCAwLCAwLCAwLjEpOyAgXG4gIGJvcmRlci1yYWRpdXM6IDRweDsgIFxufSAgXG4gIFxuLmxvZ2luLXRpdGxlIHsgIFxuICBmb250LXNpemU6IDI0cHg7ICBcbiAgdGV4dC1hbGlnbjogY2VudGVyOyAgXG4gIG1hcmdpbi1ib3R0b206IDIwcHg7ICBcbn0gIFxuICBcbi5mb3JtLWdyb3VwIHsgIFxuICBtYXJnaW4tYm90dG9tOiAxNXB4OyAgXG59ICBcbiAgXG4uZm9ybS1jb250cm9sIHsgIFxuICBkaXNwbGF5OiBibG9jazsgIFxuICB3aWR0aDogMTAwJTsgIFxuICBwYWRkaW5nOiAxMHB4OyAgXG4gIGZvbnQtc2l6ZTogMTZweDsgIFxuICBsaW5lLWhlaWdodDogMS41OyAgXG4gIGNvbG9yOiAjNDk1MDU3OyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7ICBcbiAgYmFja2dyb3VuZC1jbGlwOiBwYWRkaW5nLWJveDsgIFxuICBib3JkZXI6IDFweCBzb2xpZCAjY2VkNGRhOyAgXG4gIGJvcmRlci1yYWRpdXM6IDRweDsgIFxuICB0cmFuc2l0aW9uOiBib3JkZXItY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJveC1zaGFkb3cgMC4xNXMgZWFzZS1pbi1vdXQ7ICBcbn0gIFxuICBcbi5mb3JtLWNvbnRyb2w6Zm9jdXMgeyAgXG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjsgIFxuICBvdXRsaW5lOiAwOyAgXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTsgIFxufSAgXG4gIFxuLmJ0biB7ICBcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrOyAgXG4gIGZvbnQtd2VpZ2h0OiA0MDA7ICBcbiAgY29sb3I6ICNmZmY7ICBcbiAgdGV4dC1hbGlnbjogY2VudGVyOyAgXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7ICBcbiAgdXNlci1zZWxlY3Q6IG5vbmU7ICBcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwN2JmZjsgIFxuICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDsgIFxuICBwYWRkaW5nOiAwLjM3NXJlbSAwLjc1cmVtOyAgXG4gIGZvbnQtc2l6ZTogMXJlbTsgIFxuICBsaW5lLWhlaWdodDogMS41OyAgXG4gIGJvcmRlci1yYWRpdXM6IDAuMjVyZW07ICBcbiAgdHJhbnNpdGlvbjogY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJhY2tncm91bmQtY29sb3IgMC4xNXMgZWFzZS1pbi1vdXQsIGJvcmRlci1jb2xvciAwLjE1cyBlYXNlLWluLW91dCwgYm94LXNoYWRvdyAwLjE1cyBlYXNlLWluLW91dDsgIFxufSAgXG4gIFxuLmJ0bjpob3ZlciB7ICBcbiAgY3Vyc29yOiBwb2ludGVyOyAgXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDU2YjM7ICBcbn0gIFxuICBcbi5idG4tYmxvY2sgeyAgXG4gIGRpc3BsYXk6IGJsb2NrOyAgXG4gIHdpZHRoOiAxMDAlOyAgXG59ICBcbiAgXG4uZXJyb3ItbWVzc2FnZSB7ICBcbiAgY29sb3I6ICNkYzM1NDU7ICBcbiAgZm9udC1zaXplOiAxNHB4OyAgXG4gIHRleHQtYWxpZ246IGNlbnRlcjsgIFxuICBtYXJnaW4tdG9wOiAxMHB4OyAgXG59ICBcbiAgXG4vKiDpmpDol4/ovoXliqnmgKfmlofmnKzmoIfnrb4gKi8gIFxuLnNyLW9ubHkgeyAgXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTsgIFxuICB3aWR0aDogMXB4OyAgXG4gIGhlaWdodDogMXB4OyAgXG4gIHBhZGRpbmc6IDA7ICBcbiAgbWFyZ2luOiAtMXB4OyAgXG4gIG92ZXJmbG93OiBoaWRkZW47ICBcbiAgY2xpcDogcmVjdCgwLCAwLCAwLCAwKTsgIFxuICB3aGl0ZS1zcGFjZTogbm93cmFwOyAgXG4gIGJvcmRlcjogMDsgIFxufSAgXG48L3N0eWxlPiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///30\n");
 
 /***/ })
 ],[[0,"app-config"]]]);

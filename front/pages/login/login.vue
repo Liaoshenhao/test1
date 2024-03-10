@@ -1,85 +1,158 @@
 <template>  
-  <div class="login-container">  
-    <h2>登录</h2>  
-    <form @submit.prevent="submitForm">  
-      <div>  
-        <label for="username">用户名:</label>  
-        <input type="text" id="username" v-model="username" required>  
-      </div>  
-      <div>  
-        <label for="password">密码:</label>  
-        <input type="password" id="password" v-model="password" required>  
-      </div>  
-      <button type="submit">登录</button>  
-    </form>  
-    <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>  
+  <div id="login-container" class="container">  
+    <div class="login-form">  
+      <h2 class="login-title">Welcome Back!</h2>  
+      <form >  
+        <div class="form-group">  
+          <label for="username" class="sr-only">Username</label>  
+          <input  
+            type="text"  
+            id="username"  
+            v-model="username"  
+            class="form-control"  
+            placeholder="Username"  
+            required  
+            auto-focus  
+          >  
+        </div>  
+        <div class="form-group">  
+          <label for="password" class="sr-only">Password</label>  
+          <input  
+            type="password"  
+            id="password"  
+            v-model="password"  
+            class="form-control"  
+            placeholder="Password"  
+            required  
+          >  
+        </div>  
+        <button @click ="login" type="submit" class="btn btn-primary btn-block">  
+          Login  
+        </button>  
+      </form>  
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>  
+    </div>  
   </div>  
 </template>  
   
 <script>  
-import { ref } from 'vue';  
-  
 export default {  
-	data() {  
-		return {  
-		  // 确保在这里定义了 username 属性  
-		  username: '',  
-		  password: '',
-		  errorMessage: ''
-		  // 其他数据属性...  
-		};  
-	},  
-  setup() {  
-    const username = ref('');  
-    const password = ref('');  
-    const errorMessage = ref('');  
-    const submitForm = async () => {  
-      // 假设这是向后端发送请求的函数  
-      // 在实际开发中，你应该使用 axios 或 fetch 等库来发送请求  
-      const isValidUser = await validateUser(username.value, password.value);  
-      if (isValidUser) {  
-        // 登录成功，你可以跳转到其他页面或进行其他操作  
-        alert('登录成功！');  
-        // 清除输入字段和错误信息  
-        username.value = '';  
-        password.value = '';  
-        errorMessage.value = '';  
-      } else {  
-        // 登录失败，显示错误信息  
-        errorMessage.value = '用户名或密码错误';  
-      }  
-    };  
-  
-    // 假设的验证用户函数  
-    const validateUser = async (usernameInput, passwordInput) => {  
-      // 在这里，我们只是简单地比较用户名和密码  
-      // 在实际开发中，你应该发送请求到后端进行验证  
-      return usernameInput === 'admin' && passwordInput === 'password';  
-    };  
-  
-    // 返回响应式的数据和方法  
+  data() {  
     return {  
-      username,  
-      password,  
-      errorMessage,  
-      submitForm  
+      username: '',  
+      password: '',  
+      errorMessage: ''  
     };  
+  },  
+  methods: {  
+    login() {  
+      // 这里应该是发送登录请求到服务器的代码  
+      // 示例中仅做模拟处理    
+      if (this.username === 'admin' && this.password === 'password') {  
+        // 登录成功处理，例如跳转到其他页面  
+        // this.$router.push('/dashboard'); // 假设你使用了 Vue Router 
+		alert("登录成功");
+		console.log('登录成功！');  
+        this.errorMessage = ''; // 清空错误信息  
+      } else {  
+        // 登录失败处理  
+        this.errorMessage = 'Invalid username or password';  
+      }  
+    }  
   }  
 };  
 </script>  
   
 <style scoped>  
-.login-container {  
+.container {  
   display: flex;  
-  flex-direction: column;  
-  align-items: center;  
   justify-content: center;  
+  align-items: center;  
   height: 100vh;  
+  background-color: #f5f5f5;  
+}  
+  
+.login-form {  
+  width: 350px;  
   padding: 20px;  
+  background-color: #ffffff;  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+  border-radius: 4px;  
+}  
+  
+.login-title {  
+  font-size: 24px;  
+  text-align: center;  
+  margin-bottom: 20px;  
+}  
+  
+.form-group {  
+  margin-bottom: 15px;  
+}  
+  
+.form-control {  
+  display: block;  
+  width: 100%;  
+  padding: 10px;  
+  font-size: 16px;  
+  line-height: 1.5;  
+  color: #495057;  
+  background-color: #fff;  
+  background-clip: padding-box;  
+  border: 1px solid #ced4da;  
+  border-radius: 4px;  
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;  
+}  
+  
+.form-control:focus {  
+  border-color: #80bdff;  
+  outline: 0;  
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);  
+}  
+  
+.btn {  
+  display: inline-block;  
+  font-weight: 400;  
+  color: #fff;  
+  text-align: center;  
+  vertical-align: middle;  
+  user-select: none;  
+  background-color: #007bff;  
+  border: 1px solid transparent;  
+  padding: 0.375rem 0.75rem;  
+  font-size: 1rem;  
+  line-height: 1.5;  
+  border-radius: 0.25rem;  
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;  
+}  
+  
+.btn:hover {  
+  cursor: pointer;  
+  background-color: #0056b3;  
+}  
+  
+.btn-block {  
+  display: block;  
+  width: 100%;  
 }  
   
 .error-message {  
-  color: red;  
+  color: #dc3545;  
+  font-size: 14px;  
+  text-align: center;  
   margin-top: 10px;  
+}  
+  
+/* 隐藏辅助性文本标签 */  
+.sr-only {  
+  position: absolute;  
+  width: 1px;  
+  height: 1px;  
+  padding: 0;  
+  margin: -1px;  
+  overflow: hidden;  
+  clip: rect(0, 0, 0, 0);  
+  white-space: nowrap;  
+  border: 0;  
 }  
 </style>

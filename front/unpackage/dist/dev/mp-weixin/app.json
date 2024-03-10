@@ -2,7 +2,8 @@
   "usingComponents": {
     "login": "/pages/login/login"
   }
-}
+}  ],
+  "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
